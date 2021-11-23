@@ -1,0 +1,9 @@
+{
+  "baseUrl": "",
+  "assetsUrl": "assets",
+  "apiUrl": "https://ptx.transportdata.tw/MOTC",
+  "services": {
+    "tourism": "/v2/Tourism",
+    "bus": "/v2/Bus"
+  }
+}

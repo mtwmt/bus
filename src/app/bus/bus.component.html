@@ -1,0 +1,31 @@
+<div class="relative p-12 w-full h-full text-center bg-blue-300">
+  <h1 class="text-4xl font-bold">I Bus</h1>
+
+  <select
+    #s
+    class="mt-10 py-1 px-2 rounded w-96"
+    (change)="onCountyChange(s.value)"
+    [(ngModel)]="defaultCity"
+  >
+    <option *ngFor="let item of countySelectOption" [value]="item.id">
+      {{ item.label }}
+    </option>
+  </select>
+
+  <div class="mt-10 text-center">
+    <input
+      class="py-1 px-2 w-80 border rounded"
+      placeholder="請輸入公車名稱"
+      type="search"
+      [(ngModel)]="searchRoute"
+      (keyup.enter)="onSearch()"
+    />
+    <button
+      (click)="onSearch()"
+      class="ml-3 py-1 px-2 rounded bg-pink-600 text-white"
+    >
+      搜尋
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</div>
