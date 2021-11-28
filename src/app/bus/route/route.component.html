@@ -1,0 +1,31 @@
+<ng-container *ngFor="let data of busStore.busStopOfArrival$ | async">
+  <span class="cursor-pointer" (click)="onDirection(data.Direction)">
+    {{ data.Headsign }} </span
+  ><span class="mx-2">|</span>
+</ng-container>
+<div
+  class="
+    w-96
+    mr-auto
+    mb-2
+    ml-auto
+    leading-loose
+    text-left
+    border
+    rounded
+    bg-white
+  "
+>
+  <ng-container *ngFor="let data of busStore.busStopOfArrival$ | async">
+    <ng-container
+      *ngIf="data.Direction === +(activatedRoute.queryParams | async)?.['direction']"
+    >
+      <div *ngFor="let item of data?.routeStop" class="p-2 border">
+        <div class="flex justify-between">
+          <span>{{ item?.StopName }}</span>
+          <span>{{ item?.status }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

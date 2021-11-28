@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 import { ConfigService } from '../core/config.service';
 import { apiQuery, LatLngRange } from '../shared/utils.model';
 
@@ -66,10 +67,9 @@ export class BusService {
       city === 'InterCity'
         ? `${this.baseUrl}/RealTimeNearStop/InterCity/${route}`
         : `${this.baseUrl}/RealTimeNearStop/City/${city}/${route}`;
-
     return this.httpClient.get<any>(url, {
       params: { ...query, $format: 'JSON' },
-    });
+    })
   }
 
   fetchStationNearBy(position: LatLngRange) {

@@ -1,1 +1,12 @@
-<p>bus-search works!</p>
+<ng-container *ngIf="busStore.busRoute$ | async as busRoute">
+  <div
+    *ngFor="let item of busRoute"
+    class="w-96 mr-auto mb-2 ml-auto leading-loose text-left border rounded bg-white cursor-pointer"
+    (click)="onChangeRoute(item.RouteName.Zh_tw || item.Headsign)"
+  >
+    <span class="px-2 py-1.5 rounded-tl rounded-bl leading-loose bg-pink-500 text-white">{{
+      item.RouteName.Zh_tw || item.Headsign
+    }}</span>
+    {{ item.DepartureStopNameZh }} - {{ item.DestinationStopNameZh }}
+  </div>
+</ng-container>

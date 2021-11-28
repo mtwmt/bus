@@ -12,7 +12,7 @@
     </option>
   </select>
 
-  <div class="mt-10 text-center">
+  <div class="my-8 text-center">
     <input
       class="py-1 px-2 w-80 border rounded"
       placeholder="請輸入公車名稱"
@@ -20,6 +20,7 @@
       [(ngModel)]="searchRoute"
       (keyup.enter)="onSearch()"
     />
+  <!-- {{ (activatedRoute.queryParams | async)?.['filter'] }} -->
     <button
       (click)="onSearch()"
       class="ml-3 py-1 px-2 rounded bg-pink-600 text-white"
